@@ -32,8 +32,11 @@ def predict():
         
         prediction=model.predict([[pregnant,glucose,bp,tricep,insulin,bmi,dpf,age]])
         output=prediction
+        if (pregnant>0 && age<10):
+            return(render_template('index.html',prediction_texts='how could you be pregnant at this age enter correct details ')
+        
         if output==1:
-            return render_template('index.html',prediction_texts="Hey, you are diabetic, may god help you")
+            return render_template('index.html',prediction_texts="Hey, you are diabetic, may god help you
         else:
             return render_template('index.html',prediction_texts="No need to worry, your not diabetic")
     else:
